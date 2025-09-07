@@ -7,7 +7,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
 # For webcam input:
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) # Use 0 for webcam, or provide a video file path for a video file
 with mp_pose.Pose(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as pose:
@@ -44,6 +44,9 @@ with mp_pose.Pose(
             landmark_cords.append([cx, cy])
             cv2.putText(image, str(id), (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (0, 255, 0), 2)
         
+
+###################################################        
+
         # Defining coordinates for the left elbow angle
         left_fist_cords = landmark_cords[mp_pose.PoseLandmark.LEFT_WRIST.value]
         left_shoulder_cords = landmark_cords[mp_pose.PoseLandmark.LEFT_SHOULDER.value]
@@ -58,34 +61,34 @@ with mp_pose.Pose(
         # Function to calculate angle between three points
         def calculate_angle(a, b, c):
         
-            # Converte para arrays NumPy
+            # Convert to NumPy arrays
             a = np.array(a)
             b = np.array(b)
             c = np.array(c)
 
-            # Vetores
+            # Vectors
             ba = a - b
             bc = c - b
 
-            # Produto escalar e normas
+            # Dot product and norms
             dot_product = np.dot(ba, bc)
             norm_product = np.linalg.norm(ba) * np.linalg.norm(bc)
 
-            # Evita divisão por zero
+            # Avoid division by zero
             if norm_product == 0:
                 return 0.0
 
-            # Calcula cosseno do ângulo
+            # Calculate cosine of the angle
             cos_angle = dot_product / norm_product
 
-            # Garante que o valor esteja no intervalo [-1, 1]
+            # Ensure the value is in the range [-1, 1]
             cos_angle = np.clip(cos_angle, -1.0, 1.0)
             
             angle = np.degrees(np.arccos(cos_angle))
             
             if angle < 0:
                 angle += 360
-            # Retorna em graus
+            # Return angle in degrees
             return angle
 
         left_elbow_angle = calculate_angle(left_shoulder_cords, left_elbow_cords, left_fist_cords)
