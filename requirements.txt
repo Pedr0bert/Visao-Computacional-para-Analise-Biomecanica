@@ -1,0 +1,4 @@
+# Requer Python 3.10
+opencv-python
+numpy
+mediapipe
