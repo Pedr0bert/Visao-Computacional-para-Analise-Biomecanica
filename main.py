@@ -106,8 +106,8 @@ with mp_pose.Pose(
 
         # Draw angles
         flipped = cv2.flip(image, 1, image)  # Flip the image horizontally for a selfie-view display.
-        cv2.putText(image, f'Angle: {int(left_elbow_angle)}', (50, 50), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2) 
-        cv2.putText(image, f'Angle: {int(right_elbow_angle)}', (50, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+        cv2.putText(image, f'Left Elbow Angle: {int(left_elbow_angle)}', (50, 50), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2) 
+        cv2.putText(image, f'Right Elbow Angle: {int(right_elbow_angle)}', (50, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
 
 ###################################################
 
