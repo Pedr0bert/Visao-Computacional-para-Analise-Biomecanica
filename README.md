@@ -1,24 +1,25 @@
-# Computer Vision for Biomechanical Analysis
+# Visao Computacional para Analise Biomecanica / Computer Vision for Biomechanical Analysis
 
-This project uses Python, OpenCV, and MediaPipe for real-time biomechanical analysis, identifying human body landmarks via webcam and calculating elbow angles.
+This project uses Python, OpenCV, and MediaPipe for real-time biomechanical analysis, identifying human body landmarks via webcam or video and calculating elbow angles.
+
+## Mediapipe
+  Mediapipe is a framework for computer vision that can be used in embedded systems and mobile apliccations, such as android or IOS apps.
+  It can be simply implemented using different types of programming languages like Python, C++, JavaScript and others mentioned in their website.
 
 ## Features
-- Human pose detection using MediaPipe
-- Calculation of left and right elbow angles
-- Real-time visualization of landmarks, connections, and angles on the screen
+  This apliccation features humam pose detection and calculates angles of the left and right elbow angles. It is also capable of Real-time vizualization of landmarks, connections and showing numerical values of the respective angles.
 
 ## Requirements
 - Python 3.10
-- Webcam
 
 ## Installation
 1. Clone the repository:
-   ```sh
+   ```
    git clone https://github.com/Pedr0bert/Visao-Computacional-para-Analise-Biomecanica.git
    cd Visao-Computacional-para-Analise-Biomecanica
    ```
 2. Create a virtual environment (optional, but recommended):
-   ```sh
+   ```
    python -m venv venv
    # Activate the environment:
    # On Windows:
@@ -33,7 +34,7 @@ This project uses Python, OpenCV, and MediaPipe for real-time biomechanical anal
 
 ## How to Use
 1. Run the main script:
-   ```sh
+   ```
    python main.py
    ```
 2. A window will open showing the webcam image with body landmarks and elbow angles.
